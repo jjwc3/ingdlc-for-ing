@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "INGDLC for ING",
+  "version": "1.0.0",
+  "description": "우정잉 전용 확장 프로그램",
+  "icons": {
+    "128": "icons/icon.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/config.mjs"
+      ],
+      "type": "module",
+      "matches": [
+        "https://cafe.naver.com/*",
+        "https://play.sooplive.co.kr/*"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs",
+    "webRequest"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cafe.naver.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "src/cafeReload.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://cafe.naver.com/*"
+      ],
+      "all_frames": false,
+      "js": [
+        "src/cafeReadArticle.js",
+        "src/cafeReverse.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://play.sooplive.co.kr/*"
+      ],
+      "js": [
+        "src/liveMute.js"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "host_permissions": [
+    "*://play.sooplive.co.kr/*",
+    "*://cafe.naver.com/*"
+  ]
+}
