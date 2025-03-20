@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "INGDLC for ING",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "우정잉 전용 확장 프로그램",
   "icons": {
     "128": "icons/icon.png"
@@ -40,7 +40,8 @@
       "all_frames": false,
       "js": [
         "src/cafeReadArticle.js",
-        "src/cafeReverse.js"
+        "src/cafeReverse.js",
+        "src/cafeToIframe.js"
       ]
     },
     {

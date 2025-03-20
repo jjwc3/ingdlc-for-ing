@@ -4,8 +4,12 @@
 
     const changeClass = setInterval(() => {
         if (group.className.includes("fl")) {
-            group.className = group.className.replace("fl", "fr");
-            main.className = main.className.replace("fr", "fl");
+            try {
+                group.className = group.className.replace("fl", "fr");
+                main.className = main.className.replace("fr", "fl");
+            } catch (e) {
+                console.error(e);
+            }
         }
     }, 100);
     setTimeout(function (){
